@@ -57,7 +57,7 @@ void plp_max_i16s_xpulpv2(const int16_t *__restrict__ pSrc,
 
     uint32_t blkCnt = 0;
     int16_t x1, x2;
-    int16_t max = 0xA000;
+    int16_t max = 0x8000;
 
 #if defined(PLP_MATH_LOOPUNROLL)
 

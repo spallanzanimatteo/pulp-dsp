@@ -57,7 +57,7 @@ void plp_max_i8s_rv32im(const int8_t *__restrict__ pSrc,
 
     uint32_t blkCnt = 0;
     int8_t x1, x2;
-    int8_t max = 0xA0;
+    int8_t max = 0x80;
 
 #if defined(PLP_MATH_LOOPUNROLL)
 

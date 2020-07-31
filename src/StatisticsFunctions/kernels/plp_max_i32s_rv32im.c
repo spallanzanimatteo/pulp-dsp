@@ -57,7 +57,7 @@ void plp_max_i32s_rv32im(const int32_t *__restrict__ pSrc,
 
     uint32_t blkCnt = 0;
     int32_t x1, x2;
-    int32_t max = 0xA0000000;
+    int32_t max = 0x80000000;
 
 #if defined(PLP_MATH_LOOPUNROLL)
 
