@@ -1318,6 +1318,16 @@ typedef struct {
 } plp_mat_copy_stride_instance_f32;
 
 /** -------------------------------------------------------
+ * @brief Instance structure for 8-bit integer max operation.
+ */
+ typedef struct {
+     const int8_t *__restrict__ pSrc;
+     uint32_t nElems;
+     int8_t *__restrict__ pRes;
+     uint8_t nPE;
+ } plp_max_instance_i8;
+
+/** -------------------------------------------------------
     @brief Glue code for parallel dot product of 32-bit integer vectors.
     @param[in]  pSrcA      points to the first input vector
     @param[in]  pSrcB      points to the second input vector
@@ -2407,6 +2417,17 @@ void plp_max_i16s_xpulpv2(const int16_t *__restrict__ pSrc,
 
 void plp_max_i8(const int8_t *__restrict__ pSrc, uint32_t blockSize, int8_t *__restrict__ pRes);
 
+/**
+   @brief         Glue code for max value of a 8-bit integer vector (parallel version).
+   @param[in]     pSrc       points to the input vector
+   @param[in]     blockSize  number of samples in input vector
+   @param[out]    pRes    max value returned here
+   @param[in]     nPE     number of processing elements
+   @return        none
+ */
+
+void plp_max_i8_parallel(const int8_t *__restrict__ pSrc, uint32_t blockSize, int8_t *__restrict__ pRes, const uint8_t nPE);
+
 /** -------------------------------------------------------
     @brief      Max value of a 8-bit integer vector for RV32IM extension.
     @param[in]  pSrc       points to the input vector
@@ -2430,6 +2451,14 @@ void plp_max_i8s_rv32im(const int8_t *__restrict__ pSrc,
 void plp_max_i8s_xpulpv2(const int8_t *__restrict__ pSrc,
                          uint32_t blockSize,
                          int8_t *__restrict__ pRes);
+
+/**
+   @brief         Max value of a 8-bit integer vector for XPULPV2 extension.
+   @param[in]     task_args pointer to plp_max_instance_i8 as initialised by plp_max_i8_parallel
+   @return        none
+*/
+
+void plp_max_i8p_xpulpv2(void* task_args);
 
 /** -------------------------------------------------------
     @brief      Glue code for min value of a 32-bit float vector.

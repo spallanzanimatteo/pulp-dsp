@@ -6,7 +6,7 @@ FC_SRCS = \
 	src/StatisticsFunctions/plp_max_f32.c \
 	src/StatisticsFunctions/plp_max_i32.c src/StatisticsFunctions/kernels/plp_max_i32s_rv32im.c \
 	src/StatisticsFunctions/plp_max_i16.c src/StatisticsFunctions/kernels/plp_max_i16s_rv32im.c \
-	src/StatisticsFunctions/plp_max_i8.c src/StatisticsFunctions/kernels/plp_max_i8s_rv32im.c \
+	src/StatisticsFunctions/plp_max_i8_parallel.c src/StatisticsFunctions/plp_max_i8.c src/StatisticsFunctions/kernels/plp_max_i8s_rv32im.c \
 	src/StatisticsFunctions/plp_min_f32.c \
 	src/StatisticsFunctions/plp_min_i32.c src/StatisticsFunctions/kernels/plp_min_i32s_rv32im.c \
 	src/StatisticsFunctions/plp_min_i16.c src/StatisticsFunctions/kernels/plp_min_i16s_rv32im.c \
@@ -363,6 +363,7 @@ CL_SRCS = \
 	src/StatisticsFunctions/kernels/plp_mean_i32s_xpulpv2.c \
 	src/StatisticsFunctions/kernels/plp_mean_i16s_xpulpv2.c \
 	src/StatisticsFunctions/kernels/plp_mean_i8s_xpulpv2.c \
+	src/StatisticsFunctions/kernels/plp_max_i8p_xpulpv2.c \
 	src/StatisticsFunctions/kernels/plp_max_f32s_xpulpv2.c \
 	src/StatisticsFunctions/kernels/plp_max_i32s_xpulpv2.c \
 	src/StatisticsFunctions/kernels/plp_max_i16s_xpulpv2.c \
